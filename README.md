@@ -106,9 +106,10 @@ mysql> select count(ag.order_id), avg(ag.quantity)
 10 rows in set (0.002 sec)
 ```
 
-/**
+
 4. Розв’яжіть завдання 3, використовуючи оператор WITH для створення тимчасової таблиці temp. Якщо ваша версія MySQL більш рання, ніж 8.0, створіть цей запит за аналогією до того, як це зроблено в конспекті.
-**/
+
+```
 mysql> with cte as
     -> (select count(order_id) order_id_count, avg(quantity) avg_quantity
     -> from order_details
@@ -130,14 +131,13 @@ mysql> with cte as
 |              2 |      20.0000 |
 +----------------+--------------+
 10 rows in set (0.003 sec)
+```
 
-/**
 5. Створіть функцію з двома параметрами, яка буде ділити перший параметр на другий. Обидва параметри та значення, що повертається, повинні мати тип FLOAT.
 
 Використайте конструкцію DROP FUNCTION IF EXISTS. Застосуйте функцію до атрибута quantity таблиці order_details . Другим параметром може бути довільне число на ваш розсуд.
-**/
 
-
+```
 mysql> DROP FUNCTION IF EXISTS divide_floats;
 Query OK, 0 rows affected, 1 warning (0.018 sec)
 
@@ -174,6 +174,3 @@ mysql> Select divide_floats(quantity, 3.14) from order_details limit 10;
 mysql> exit
 Bye
 anton@anton-Latitude-7420:~/Documents/test-csv-data$ 
-
-
-
