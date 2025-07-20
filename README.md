@@ -60,7 +60,10 @@ mysql> select od.*, o.customer_id from order_details od, orders o limit 5;
 
 ```
 
-mysql> select od.*, o.customer_id, o.shipper_id from order_details od, orders o where o.shipper_id = 3 limit 10;
+mysql> select od.*, o.customer_id, o.shipper_id 
+    -> from order_details od, orders o 
+    -> where o.shipper_id = 3 
+    -> limit 10;
 +----+----------+------------+----------+-------------+------------+
 | id | order_id | product_id | quantity | customer_id | shipper_id |
 +----+----------+------------+----------+-------------+------------+
